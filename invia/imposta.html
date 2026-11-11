@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Impostazione del custode · solo Clemente</title><link rel="stylesheet" href="stile.css"><meta name="robots" content="noindex"></head>
+<body><header><h1>IMPOSTAZIONE DEL CUSTODE</h1><p>Solo per Clemente · si fa una volta</p></header><main>
+<div class="carta"><p>Questa pagina genera <b>nel tuo browser</b> la chiave di cifratura, il seme per 2FAS e il codice d'invio di MG.
+Non li manda a nessuno: li copi tu nelle proprietà del custode. <b>Non incollarli in chat</b> (tranne la chiave pubblica, al punto 4).</p>
+<button class="btn grande" id="genera">Genera</button></div>
+<div id="risultati" hidden>
+<div class="carta"><h2>1. Proprietà dello script del custode</h2>
+<p>Apps Script → progetto del custode → ⚙ Impostazioni progetto → Proprietà dello script → Aggiungi proprietà, tre volte:</p>
+<p><b>AGE_SECRET</b><br><input type="text" id="AGE_SECRET" readonly> <button class="btn chiaro" data-copia="AGE_SECRET">Copia</button></p>
+<p><b>TOTP_SEED</b><br><input type="text" id="TOTP_SEED" readonly> <button class="btn chiaro" data-copia="TOTP_SEED">Copia</button></p>
+<p><b>CODICE_INVIO</b><br><input type="text" id="CODICE_INVIO" readonly> <button class="btn chiaro" data-copia="CODICE_INVIO">Copia</button></p></div>
+<div class="carta"><h2>2. 2FAS</h2><p>In 2FAS: <b>+</b> → «Inserisci la chiave manualmente» → nome «Villa Aurora custode» → chiave: il valore di <b>TOTP_SEED</b> (6 cifre, 30 secondi, SHA1).</p></div>
+<div class="carta"><h2>3. Link per MG</h2><p>Mandalo a MG (o aprilo tu sul suo dispositivo): salva il codice d'invio nel suo browser.</p>
+<p><input type="text" id="link" readonly> <button class="btn chiaro" data-copia="link">Copia</button></p></div>
+<div class="carta"><h2>4. Chiave pubblica (questa sì, in chat a Claude)</h2>
+<p><input type="text" id="AGE_PUBLIC" readonly> <button class="btn chiaro" data-copia="AGE_PUBLIC">Copia</button></p>
+<p class="nota">Chiudi questa pagina quando hai finito: i valori non vengono salvati da nessuna parte.</p></div></div>
+</main><script type="module" src="imposta.js"></script></body></html>
