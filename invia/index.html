@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Invia a Clemente · Villa Aurora</title><link rel="stylesheet" href="stile.css"><meta name="robots" content="noindex"></head>
+<body><header><h1>INVIA A CLEMENTE</h1><p>Il mistero di Villa Aurora · per la prof.ssa</p></header><main>
+<div class="carta"><p><b>Come funziona.</b> Scegli un file: questa pagina lo controlla <b>qui, sul tuo dispositivo</b>. Se trova un dato personale
+(email, telefono, codice fiscale, indirizzo, data di nascita, il nome di un alunno) <b>non invia nulla</b> e ti dice dove correggere.
+Se il controllo è superato, il file viene <b>cifrato</b> prima di partire: solo Claude potrà aprirlo, e solo con il codice di Clemente.</p></div>
+
+<details class="carta" id="prima"><summary>Prima volta su questo dispositivo (si fa una volta sola)</summary>
+<p>1. Codice d'invio: <span id="statoCodice"></span></p>
+<p>2. Elenco della classe: <span id="statoElenco"></span></p>
+<p class="nota">Incolla qui l'elenco degli alunni, <b>una persona per riga, «Cognome Nome»</b> (per esempio copiandolo dal registro).
+Resta <b>solo in questo browser</b>: non viene inviato a nessuno, serve solo per riconoscere i nomi veri nei file.</p>
+<textarea id="elenco" placeholder="Cognome Nome&#10;Cognome Nome&#10;…"></textarea>
+<p><button class="btn" id="salvaElenco">Salva l'elenco su questo dispositivo</button>
+<button class="btn chiaro" id="cancellaElenco">Cancella l'elenco salvato</button></p></details>
+
+<div class="carta" id="passo2" hidden><h2>Invia un file</h2>
+<p><label>Che cos'è<br><select id="categoria">
+<option value="registro">Riepilogo dal Registro (solo sigle)</option><option value="studente">Testo scritto da uno studente</option>
+<option value="docente">Materiale della prof</option><option value="altro">Altro</option></select></label></p>
+<p><label>Il file (PDF con testo, Word .docx, .txt, .csv)<br><input type="file" id="file" accept=".pdf,.docx,.txt,.csv,.md,.tsv"></label></p>
+<div id="risultato"></div>
+<button class="btn grande" id="invia" hidden>Invia a Clemente</button>
+<p class="nota">Foto e scansioni per ora non si possono inviare.</p></div>
+</main>
+<script src="mammoth.browser.min.js"></script>
+<script>window.INVIA_CONF = {"destinatario": "age1s7qv3p50wle8nmjmwcqvg47qc5tc0r7d4njke6mmzl20g6f9dpust7fy76", "custode": "https://script.google.com/macros/s/AKfycbyW6tRxUnMgZ_7zoG8fp9ydB5Zhna7g0bC1hu9MhkKzXXvjUVn15YoJuoP5LGeMZr8dcw/exec", "versione": "invia-a-clemente/1"};</script>
+<script type="module" src="app.js"></script>
+</body></html>
