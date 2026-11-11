@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Invia a Clemente · Villa Aurora</title><link rel="stylesheet" href="stile.css"><meta name="robots" content="noindex"></head>
+<title>Invia a Clemente · Villa Aurora</title><link rel="stylesheet" href="stile.css"><meta name="robots" content="noindex">
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icona-192.png"><meta name="theme-color" content="#191d29"></head>
 <body><header><h1>INVIA A CLEMENTE</h1><p>Il mistero di Villa Aurora · per la prof.ssa</p></header><main>
 <div class="carta"><p><b>Come funziona.</b> Scegli un file: questa pagina lo controlla <b>qui, sul tuo dispositivo</b>. Se trova un dato personale
 (email, telefono, codice fiscale, indirizzo, data di nascita, il nome di un alunno) <b>non invia nulla</b> e ti dice dove correggere.
 Se il controllo è superato, il file viene <b>cifrato</b> prima di partire: solo Claude potrà aprirlo, e solo con il codice di Clemente.</p></div>
 
-<details class="carta" id="prima"><summary>Prima volta su questo dispositivo (si fa una volta sola)</summary>
-<p>1. Codice d'invio: <span id="statoCodice"></span></p>
-<p>2. Elenco della classe: <span id="statoElenco"></span></p>
-<p class="nota">Incolla qui l'elenco degli alunni, <b>una persona per riga, «Cognome Nome»</b> (per esempio copiandolo dal registro).
-Resta <b>solo in questo browser</b>: non viene inviato a nessuno, serve solo per riconoscere i nomi veri nei file.</p>
+<details class="carta" id="prima"><summary>Prima volta su questo dispositivo</summary>
+<p>Codice d'invio: <span id="statoCodice"></span><br>Elenco della classe: <span id="statoElenco"></span></p>
+<p><label><input type="checkbox" id="condiviso"> <b>Computer della scuola o di altri</b>: non ricordare niente quando chiudo la pagina</label></p>
+<h2>Il modo più semplice: il file delle impostazioni</h2>
+<p>Se l'hai già preparato, aprilo da qui (lo trovi nel Drive della <b>scuola</b>):</p>
+<p><input type="file" id="fileImpostazioni" accept=".txt,.json"></p>
+<h2>Oppure: incolla l'elenco della classe</h2>
+<p class="nota">Una persona per riga, «Cognome Nome». Resta <b>solo su questo dispositivo</b>: serve per riconoscere i nomi veri nei file.</p>
 <textarea id="elenco" placeholder="Cognome Nome&#10;Cognome Nome&#10;…"></textarea>
-<p><button class="btn" id="salvaElenco">Salva l'elenco su questo dispositivo</button>
-<button class="btn chiaro" id="cancellaElenco">Cancella l'elenco salvato</button></p></details>
+<p><button class="btn" id="salvaElenco">Salva l'elenco</button></p></details>
+
+<details class="carta" id="altriDispositivi" hidden><summary>Usare l'app su un altro dispositivo</summary>
+<p>Scarica il <b>file delle impostazioni</b> (codice d'invio + elenco della classe) e salvalo nel <b>Drive della scuola</b>: mai nel Drive personale, mai per mail.
+Sull'altro dispositivo apri l'app e caricalo in «Prima volta su questo dispositivo». Un passo solo.</p>
+<p><button class="btn" id="scaricaImpostazioni">Scarica il file delle impostazioni</button></p>
+<p><b>Per avere l'icona sul telefono o sul tablet</b>: Chrome → menu ⋮ → «Aggiungi a schermata Home» (iPhone/iPad: Safari → Condividi → «Aggiungi alla schermata Home»).
+Sul computer: Chrome → icona ⊕ nella barra dell'indirizzo → «Installa». <i>Su iPhone e iPad, dopo aver aggiunto l'icona, aprila e carica lì il file delle impostazioni.</i></p>
+<p><button class="btn chiaro" id="dimentica">Dimentica tutto su questo dispositivo</button></p></details>
 
 <div class="carta" id="passo2" hidden><h2>Invia un file</h2>
 <p><label>Che cos'è<br><select id="categoria">
@@ -27,4 +38,5 @@ Resta <b>solo in questo browser</b>: non viene inviato a nessuno, serve solo per
 <script src="mammoth.browser.min.js"></script>
 <script>window.INVIA_CONF = {"destinatario": "age1s7qv3p50wle8nmjmwcqvg47qc5tc0r7d4njke6mmzl20g6f9dpust7fy76", "custode": "https://script.google.com/macros/s/AKfycbyW6tRxUnMgZ_7zoG8fp9ydB5Zhna7g0bC1hu9MhkKzXXvjUVn15YoJuoP5LGeMZr8dcw/exec", "versione": "invia-a-clemente/1"};</script>
 <script type="module" src="app.js"></script>
+<script>if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});</script>
 </body></html>
